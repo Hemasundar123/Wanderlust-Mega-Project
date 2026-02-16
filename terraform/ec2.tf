@@ -1,6 +1,6 @@
 resource "aws_key_pair" "deployer" {
-  key_name   = "terra-automate-key"
-  public_key = file("/Users/shubham/Documents/work/TrainWithShubham/terra-practice/terra-key.pub")
+  key_name   = "Ec2-Key"
+  public_key = file("C:\Users\jagil\Downloads\Pikachu.pem")
 }
 
 resource "aws_default_vpc" "default" {
