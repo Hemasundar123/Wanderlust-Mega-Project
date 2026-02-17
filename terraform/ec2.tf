@@ -1,6 +1,7 @@
 resource "aws_key_pair" "deployer" {
-  key_name   = "Ec2-Key"
-  public_key = file("C:\Users\jagil\Downloads\Pikachu.pem")
+  key_name   = "Ichigo"
+  public_key = file("C:/Users/jagil/Downloads/Ichigo.pub")
+
 }
 
 resource "aws_default_vpc" "default" {
@@ -49,12 +50,13 @@ resource "aws_security_group" "allow_user_to_connect" {
 }
 
 resource "aws_instance" "testinstance" {
+  count = 2
   ami             = var.ami_id
   instance_type   = var.instance_type
   key_name        = aws_key_pair.deployer.key_name
   security_groups = [aws_security_group.allow_user_to_connect.name]
   tags = {
-    Name = "Automate"
+    Name = "Automate-${count.index+1}"
   }
   root_block_device {
     volume_size = 30 
