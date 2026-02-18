@@ -32,7 +32,7 @@ pipeline {
         stage('Git: Code Checkout') {
             steps {
                 script{
-                    code_checkout("hhttps://github.com/Hemasundar123/Wanderlust-Mega-Project","main")
+                    code_checkout("https://github.com/Hemasundar123/Wanderlust-Mega-Project","main")
                 }
             }
         }
