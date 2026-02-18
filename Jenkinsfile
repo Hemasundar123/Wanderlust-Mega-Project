@@ -97,11 +97,11 @@ pipeline {
             steps{
                 script{
                         dir('backend'){
-                            docker_build("Mikey-backend-beta","${params.BACKEND_DOCKER_TAG}","mikey699")
+                            docker_build("mikey-backend-beta","${params.BACKEND_DOCKER_TAG}","mikey699")
                         }
                     
                         dir('frontend'){
-                            docker_build("Mikey-frontend-beta","${params.FRONTEND_DOCKER_TAG}","mikey699")
+                            docker_build("mikey-frontend-beta","${params.FRONTEND_DOCKER_TAG}","mikey699")
                         }
                 }
             }
@@ -110,8 +110,8 @@ pipeline {
         stage("Docker: Push to DockerHub"){
             steps{
                 script{
-                    docker_push("Mikey-backend-beta","${params.BACKEND_DOCKER_TAG}","mikey699") 
-                    docker_push("Mikey-frontend-beta","${params.FRONTEND_DOCKER_TAG}","mikey699")
+                    docker_push("mikey-backend-beta","${params.BACKEND_DOCKER_TAG}","mikey699") 
+                    docker_push("mikey-frontend-beta","${params.FRONTEND_DOCKER_TAG}","mikey699")
                 }
             }
         }
