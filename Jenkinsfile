@@ -110,8 +110,8 @@ pipeline {
         stage("Docker: Push to DockerHub"){
             steps{
                 script{
-                    docker_push("mikey-backend-beta","${params.BACKEND_DOCKER_TAG}","mikey699") 
-                    docker_push("mikey-frontend-beta","${params.FRONTEND_DOCKER_TAG}","mikey699")
+                    dockerpush("mikey-backend-beta","${params.BACKEND_DOCKER_TAG}","mikey699") 
+                    dockerpush("mikey-frontend-beta","${params.FRONTEND_DOCKER_TAG}","mikey699")
                 }
             }
         }
